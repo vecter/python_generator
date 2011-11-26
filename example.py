@@ -4,14 +4,14 @@ def f(x):
 def g(x):
   return x % 2 == 0
 
-def apply_filter(lst, f, g):
-  def gen_filter(lst):
-    for elt in lst:
+def apply_filter(iterable, f, g):
+  def gen_filter(iterable):
+    for elt in iterable:
       if g(elt):
         yield elt
 
-  for elt in gen_filter(lst):
+  for elt in gen_filter(iterable):
     f(elt)
 
-apply_filter(range(10), f, g)
+apply_filter(set(range(10)), f, g)
 
